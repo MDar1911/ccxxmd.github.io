@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://ccxxmd.github.io/2017/03/04/Blog_domainname/</loc>
+    <lastmod>2017-03-05T06:00:39.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo-GitHub Page博客绑定域名</title>
+        <pubTime>2017-03-04T05:14:34.000Z</pubTime>
+        
+        <tag>blog github hexo</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+  <url>
     <loc>http://ccxxmd.github.io/2017/01/02/Blog_hello/</loc>
     <lastmod>2017-03-05T05:52:02.000Z</lastmod>
     <data>
@@ -31,23 +52,6 @@
         <pubTime>2017-02-02T13:52:38.000Z</pubTime>
         
         <tag>Unity</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ccxxmd.github.io/2017/03/04/Blog_domainname/</loc>
-    <lastmod>2017-03-05T05:49:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo-GitHub Page博客绑定域名</title>
-        <pubTime>2017-03-04T05:14:34.000Z</pubTime>
-        
-        <tag>blog github hexo</tag>
          
          
            
