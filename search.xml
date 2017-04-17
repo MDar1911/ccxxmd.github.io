@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title><![CDATA[PHP简要回顾(上)]]></title>
+      <url>http://ccxxmd.github.io/2017/04/17/PHP_re1/</url>
+      <content type="html"><![CDATA[<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=5179544&auto=0&height=66"></iframe><br>复习一下PHP吧。PP虾，我们走！<br><a id="more"></a></p>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="if-else-循环"><a href="#if-else-循环" class="headerlink" title="if..else 循环"></a>if..else 循环</h3><h4 id="只有用到-if-条件"><a href="#只有用到-if-条件" class="headerlink" title="只有用到 if 条件"></a>只有用到 if 条件</h4><p>只用到 if 条件，当作单纯的判断。解释成 “若发生了某事则怎样处理”。语法如下： </p>
+<blockquote>
+<p> if (expr) { statement }</p>
+</blockquote>
+<p>其中的 expr 为判断的条件，通常都是用逻辑运算符号当判断的条件。而 statement 为符合条件的执行部分程序，若程序只有一行，可以省略大括号 {}。 </p>
+<p>范例：本例省略大括号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?php </div><div class="line"></div><div class="line">if ($state==1) echo &quot;哈哈&quot; ; </div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>这里特别注意的是，判断是否相等是==而不是=，= 是赋值。 </p>
+<p>范例：本例的执行部分有三行，不可省略大括号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?php </div><div class="line"></div><div class="line">if ($state==1) &#123; </div><div class="line"></div><div class="line">echo &quot;哈哈 ; </div><div class="line"></div><div class="line">echo &quot;&lt;br&gt;&quot; ; </div><div class="line"></div><div class="line">&#125; </div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="除了-if-之外，加上了-else-的条件。"><a href="#除了-if-之外，加上了-else-的条件。" class="headerlink" title="除了 if 之外，加上了 else 的条件。"></a>除了 if 之外，加上了 else 的条件。</h4><p>除了 if 之外，加上了 else 的条件，可解释成“若发生了某事则怎样处理，否则改如何处理”。语法如下</p>
+<blockquote>
+<p>if (expr) { statement1 } else { statement2 }</p>
+</blockquote>
+<p> 范例：上面的例子来修改成更完整的处理。其中的 else 由于只有一行执行的指令，因此不用加上大括号。 </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">if ($state==1) &#123; </div><div class="line"></div><div class="line">echo &quot;哈哈&quot; ; </div><div class="line"></div><div class="line">echo &quot;&lt;br&gt;&quot;;</div><div class="line"></div><div class="line">&#125; </div><div class="line"></div><div class="line">else&#123;</div><div class="line"></div><div class="line">echo &quot;呵呵&quot;;</div><div class="line"></div><div class="line">echo &quot;&lt;br&gt;&quot;; </div><div class="line"></div><div class="line">&#125; </div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<h4 id="递归的-if-else-循环"><a href="#递归的-if-else-循环" class="headerlink" title="递归的 if..else 循环"></a>递归的 if..else 循环</h4><p>递归的 if..else 循环，通常用在多种决策判断时。它将数个 if..else 拿来合并运用处理。 </p>
+<p>直接看下面的例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;?php </div><div class="line"></div><div class="line">if ( $a &gt; $b ) &#123; </div><div class="line"></div><div class="line">echo &quot;a 比 b 大&quot; ; </div><div class="line"></div><div class="line">&#125; elseif ( $a == $b ) &#123; </div><div class="line"></div><div class="line">echo &quot;a 等于 b&quot; ; </div><div class="line"></div><div class="line">&#125; else &#123; </div><div class="line"></div><div class="line">echo &quot;a 比 b 小&quot; ; </div><div class="line"></div><div class="line">&#125; </div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>上例只用二层的 if..else 循环，用来比较 a 和 b 两个变量。实际要使用这种递归 if..else 循环时，要小心使用，因为太多层的循环容易使设计的逻辑出问题，或者少打了大括号等，都会造成程序出现莫名其妙的问题。 </p>
+<h3 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h3><p>for 循环就单纯只有一种，没有变化，它的语法如下 </p>
+<blockquote>
+<p>for (expr1; expr2; expr3) { statement }</p>
+</blockquote>
+<p>其中的 expr1 为条件的初始值。expr2 为判断的条件，通常都是用逻辑运算符号 (logical operators) 当判断的条件。expr3 为执行 statement 后要执行的部份，</p>
+<p>用来改变条件，供下次的循环判断，如加一..等等。而 statement 为符合条件的执行部分程序，若程序只有一行，可以省略大括号 {}。 </p>
+<p>下例是用 for 循环写的的例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?php </div><div class="line"></div><div class="line">for ( $i = 1 ; $i &lt;= 10 ; $i ++) &#123; </div><div class="line"></div><div class="line">echo &quot;这是第&quot;.$i.&quot;次循环&lt;br&gt;&quot; ; </div><div class="line"></div><div class="line">&#125; </div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="switch-循环"><a href="#switch-循环" class="headerlink" title="switch 循环"></a>switch 循环</h3><p>switch 循环，通常处理复合式的条件判断，每个子条件，都是 case 指令部分。在实作上若使用许多类似的 if 指令，可以将它综合成 switch 循环。 </p>
+<p>语法如下 </p>
+<blockquote>
+<p>switch (expr) {  case expr1:  statement1;  break; </p>
+<p>case expr2:  statement2; break;</p>
+<p>default:  statementN;  break; }</p>
+</blockquote>
+<p>其中的 expr 条件，通常为变量名称。而 case 后的 exprN，通常表示变量值。冒号后则为符合该条件要执行的部分。注意要用 break 跳离循环。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;?php </div><div class="line"></div><div class="line">switch ( date ( &quot;D&quot; )) &#123; </div><div class="line"></div><div class="line">case &quot;Mon&quot; : </div><div class="line">echo &quot;今天星期一&quot; ; </div><div class="line">break; </div><div class="line"></div><div class="line">case &quot;Tue&quot; : </div><div class="line">echo &quot;今天星期二&quot; ; </div><div class="line">break; </div><div class="line"></div><div class="line">case &quot;Wed&quot; : </div><div class="line">echo &quot;今天星期三&quot; ; </div><div class="line">break; </div><div class="line"></div><div class="line">case &quot;Thu&quot; : </div><div class="line">echo &quot;今天星期四&quot; ; </div><div class="line">break; </div><div class="line"></div><div class="line">case &quot;Fri&quot; : </div><div class="line">echo &quot;今天星期五&quot; ; </div><div class="line">break; </div><div class="line"></div><div class="line">default: </div><div class="line">echo &quot;今天放假&quot; ; </div><div class="line">break; </div><div class="line"></div><div class="line">&#125; </div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>这里需要注意的是break;别遗漏了，default，省略是可以的。 </p>
+<p>很明显的，上述的例子用 if 循环就很麻烦了。在设计时，要将出现机率最大的条件放在最前面，最少出现的条件放在最后面，可以增加程序的执行效率。</p>
+<p>上例由于每天出现的机率相同，所以不用注意条件的顺序。 </p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hexo-GitHub Page博客绑定域名]]></title>
       <url>http://ccxxmd.github.io/2017/03/04/Blog_domainname/</url>
       <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1695569&auto=0&height=66"></iframe>
