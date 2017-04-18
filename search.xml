@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title><![CDATA[PHP简要回顾（下）]]></title>
+      <url>http://ccxxmd.github.io/2017/04/18/PHP_re3/</url>
+      <content type="html"><![CDATA[<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=28946994&auto=0&height=66"></iframe></p>
+<h4 id="SESSION的使用"><a href="#SESSION的使用" class="headerlink" title="SESSION的使用"></a>SESSION的使用</h4><p>SESSION的作用很多，最多用的就是站点内页面间变量传递。在页面开始我们要session_start();开启SESSION；<br><a id="more"></a></p>
+<p>然后就可以使用SESSION变量了，比如说要赋值就是：    <strong>$_SESSION[‘item’]=”item1”;    </strong>要得到值就是    <strong>$item1=$_SESSION[‘item’];</strong>    这里可能会使用到一些函数，比如说判断是不是某SESSION变量为空，可以这么写：    <strong>empty($_SESSION[‘inum’])</strong>    返回<strong>true</strong> or <strong>false</strong>。</p>
+<h4 id="制作一个分页显示"><a href="#制作一个分页显示" class="headerlink" title="制作一个分页显示"></a>制作一个分页显示</h4><p>关键就是用到了SQL语句中的limit来限定显示的记录从几到几。<br>需要一个记录当前页的变量$page，还需要总共的记录数$num</p>
+<p>对于$page如果没有就让它=0，如果有&lt;0就让它也=0，如果超过了总的页数就让他=总的页数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$execc=&quot;select count(*) from tablename &quot;;</div><div class="line">$resultc=mysql_query($execc);</div><div class="line">$rsc=mysql_fetch_array($resultc);</div><div class="line">$num=$rsc[0];</div></pre></td></tr></table></figure>
+<p>这样可以得到记录总数<br><strong>ceil($num/10))</strong>    如果一页10记录的话，这个就是总的页数</p>
+<p>所以可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">if(empty($_GET[&apos;page&apos;]))</div><div class="line">&#123;</div><div class="line">$page=0;</div><div class="line">&#125;</div><div class="line">else</div><div class="line">&#123;</div><div class="line">$page=$_GET[&apos;page&apos;];</div><div class="line">if($page&lt;0)$page=0;</div><div class="line">if($page&gt;=ceil($num/10))$page=ceil($num/10)-1;</div><div class="line">//因为page是从0开始的，所以要-1</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样<strong>$exec</strong>可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> $exec=&quot;select * from tablename limit &quot;.($page*10).&quot;,10&quot;;</div><div class="line">//一页是10记录的</div></pre></td></tr></table></figure></p>
+<p>最后需要做的就是几个连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;xxx.php?page=0&quot;&gt;FirstPage&lt;/a&gt; </div><div class="line">&lt;a href=&quot;xxx.php?page=&lt;?=($page-1)?&gt;&quot;&gt;PrevPage&lt;/a&gt; </div><div class="line">&lt;a href=&quot;xxx.php?page=&lt;?=($page+1)?&gt;&quot;&gt;NextPage&lt;/a&gt; </div><div class="line">&lt;a href=&quot;xxx.php?page=&lt;?=ceil($num/10)-1?&gt;&quot;&gt;LastPage&lt;/a&gt;</div></pre></td></tr></table></figure>
+<h3 id="PHP注意事项"><a href="#PHP注意事项" class="headerlink" title="PHP注意事项"></a>PHP注意事项</h3><p>1、注意不要漏了分号</p>
+<p>2、注意不要漏了变量前的$</p>
+<p>3、使用SESSION的时候注意不要遗漏session_start();</p>
+<p>如果发生错误的时候，可以采用以下方法：</p>
+<p>1、如果是SQL语句出错，就注释了然后输出SQL语句，注意也要注释调后续的执行SQL语句</p>
+<p>2、如果是变量为空，大多是没有传递到位，输出变量检查一下，检查一下表单的id和name</p>
+<p>3、如果是数据库连接出错，检查是否正确打开MY SQL和是否遗漏了连接语句</p>
+<p>4、注意缩进，排除括号不区配的错误</p>
+<p>在做大网站的时候，我的思路是先构建数据库，确定每一个字段的作用，和表之间的关系。然后设计后台界面，从添加数据开始做起，因为添加是否成功可以直接到数据库里面验证，做好了添加再做显示的页面，最后才是两者的结合。</p>
+<p>一般来说后台就包括添加删除修改和显示，后台没有问题了，前台也没有什么大问题。前台还需要注意安全性和容错还有就是输出格式。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[PHP简要回顾(中)]]></title>
       <url>http://ccxxmd.github.io/2017/04/17/PHP_re2/</url>
       <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=28310873&auto=0&height=66"></iframe>

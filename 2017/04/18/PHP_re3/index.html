@@ -10,7 +10,7 @@
     <!-- Title -->
     
     <title>
-        归档: 2017/4 | MDar&#39;s Blog
+        PHP简要回顾（下） | MDar&#39;s Blog
     </title>
     
     <!-- Favicons -->
@@ -46,7 +46,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://ccxxmd.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2017/4 | MDar&#39;s Blog">
+    <meta property="og:title" content="PHP简要回顾（下） | MDar&#39;s Blog">
     <meta property="og:description" content="Making Dream a reality">
     
      <!--[if lte IE 9]>
@@ -200,225 +200,248 @@
                 </button>
 				
 				
-                <!-- Index Module -->
-<div class="material-index mdl-grid">
-	
-    <div class="locate-thumbnail-symbol"></div>
+                <!-- Post TOC -->
+
     
-    
+	<!-- Back Button -->
+<!--
+	<div class="material-back" id="backhome-div" tabindex="0">
+		<a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="#" onclick="window.history.back();return false;" target="_self" role="button" data-upgraded=",MaterialButton,MaterialRipple">
+			<i class="material-icons" role="presentation">arrow_back</i>
+			<span class="mdl-button__ripple-container">
+				<span class="mdl-ripple"></span>
+			</span>
+		</a>
+	</div>			
+-->
+	<!-- Left aligned menu below button -->
+	<button id="post-toc-trigger-btn"
+			class="mdl-button mdl-js-button mdl-button--icon">
+	  <i class="material-icons">format_list_numbered</i>
+	</button>
+
+	<ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+		for="post-toc-trigger-btn">
+			
+			<ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#SESSION的使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">SESSION的使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#制作一个分页显示"><span class="post-toc-number">2.</span> <span class="post-toc-text">制作一个分页显示</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PHP注意事项"><span class="post-toc-number"></span> <span class="post-toc-text">PHP注意事项</span></a>
 		
-			<!-- Paradox Thumbnail -->
-        	<div class="post_entry-module mdl-card mdl-cell mdl-cell--12-col fade out">
-    
-    <!-- Post Thumbnail -->
+<!--			<li class="mdl-menu__item">Some Action</li>-->
+	</ul>
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+		
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+	<!-- Paradox Post Header -->
 	
 		<!-- Custom Thumbnail -->
 		<div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://ww1.sinaimg.cn/large/88253132gy1fepxtcsjbnj20dw08djrg.jpg)">
 	
-				
-		<!-- Post Title -->
-		<p class="article-headline-p"><a href="/2017/04/18/PHP_re3/">PHP简要回顾（下）</a></p>
-	</div>
+        <p class="article-headline-p">
+            PHP简要回顾（下）
+        </p>
+    </div>
 
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-SESSION的使用SESSION的作用很多，最多用的就是站点内页面间变量传递。在页面开始我们要session_start();开启SESSION；
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/04/18/PHP_re3/" target="_self">继续阅读</a>
-        </span>
+	
+
+				
+				
+					<!-- Paradox Post Info -->
+					<div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/T-REX.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/T-REX.png" width="44px" height="44px" alt="MDar's avatar">
-            </div>
-            <div>
-                <strong>MDar</strong>
-                <span>4月 18, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-            
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span class="ds-thread-count" data-thread-key="2017/04/18/PHP_re3/" data-count-type="comments"></span>
-                </span>
-            
-            
-            <!-- Post Views -->
-            <span class="post_entry-views">
-                
-            </span>
-        </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MDar</strong>
+        <span>4月 18, 2017</span>
     </div>
-            
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+<!--
+    <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+        <i class="material-icons" role="presentation">favorite</i>
+        <span class="visuallyhidden">favorites</span>
+    </button>
+-->
+
+    <!-- Qrcode -->
+    
+
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/PHP/">PHP</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+
+    
+    <!-- Leancloud Views -->
+    <a class="post_share-link" href="#">
+        <li class="mdl-menu__item">
+            <span id="/2017/04/18/PHP_re3/" class="leancloud-views_num" data-flag-title="PHP简要回顾（下）">
+     &nbsp;浏览量
+</span>
+        </li>
+    </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=PHP简要回顾（下）&url=http://ccxxmd.github.io//2017/04/18/PHP_re3/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <li class="mdl-menu__item">
+            分享到微博
+        </li>
+    </a>
+    
+
+    <!-- Share Twitter -->
+    
+    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=PHP简要回顾（下）&url=http://ccxxmd.github.io//2017/04/18/PHP_re3/index.html&via=MDar" target="_blank">
+        <li class="mdl-menu__item">
+            分享到 Twitter
+        </li>
+    </a>
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+    <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=MDar&#39;s Blog&title=PHP简要回顾（下）&summary=Making Dream a reality&pics=http://ccxxmd.github.io/img/favicon.png&url=http://ccxxmd.github.io/2017/04/18/PHP_re3/index.html" target="_blank">
+        <li class="mdl-menu__item">
+            分享到 QQ
+        </li>
+    </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
 </div>
 
-		
-		
-    
-		
-			<!-- Paradox Thumbnail -->
-        	<div class="post_entry-module mdl-card mdl-cell mdl-cell--12-col fade out">
-    
-    <!-- Post Thumbnail -->
-	
-		<!-- Custom Thumbnail -->
-		<div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://ww1.sinaimg.cn/mw690/88253132gy1feq26mg98zj20dw08djrg.jpg)">
-	
 				
-		<!-- Post Title -->
-		<p class="article-headline-p"><a href="/2017/04/17/PHP_re2/">PHP简要回顾(中)</a></p>
-	</div>
 
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
+                <!-- Post Content -->
+                <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+	
+		<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=28946994&auto=0&height=66"></iframe></p>
+<h4 id="SESSION的使用"><a href="#SESSION的使用" class="headerlink" title="SESSION的使用"></a>SESSION的使用</h4><p>SESSION的作用很多，最多用的就是站点内页面间变量传递。在页面开始我们要session_start();开启SESSION；<br><a id="more"></a></p>
+<p>然后就可以使用SESSION变量了，比如说要赋值就是：    <strong>$_SESSION[‘item’]=”item1”;    </strong>要得到值就是    <strong>$item1=$_SESSION[‘item’];</strong>    这里可能会使用到一些函数，比如说判断是不是某SESSION变量为空，可以这么写：    <strong>empty($_SESSION[‘inum’])</strong>    返回<strong>true</strong> or <strong>false</strong>。</p>
+<h4 id="制作一个分页显示"><a href="#制作一个分页显示" class="headerlink" title="制作一个分页显示"></a>制作一个分页显示</h4><p>关键就是用到了SQL语句中的limit来限定显示的记录从几到几。<br>需要一个记录当前页的变量$page，还需要总共的记录数$num</p>
+<p>对于$page如果没有就让它=0，如果有&lt;0就让它也=0，如果超过了总的页数就让他=总的页数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$execc=&quot;select count(*) from tablename &quot;;</div><div class="line">$resultc=mysql_query($execc);</div><div class="line">$rsc=mysql_fetch_array($resultc);</div><div class="line">$num=$rsc[0];</div></pre></td></tr></table></figure>
+<p>这样可以得到记录总数<br><strong>ceil($num/10))</strong>    如果一页10记录的话，这个就是总的页数</p>
+<p>所以可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">if(empty($_GET[&apos;page&apos;]))</div><div class="line">&#123;</div><div class="line">$page=0;</div><div class="line">&#125;</div><div class="line">else</div><div class="line">&#123;</div><div class="line">$page=$_GET[&apos;page&apos;];</div><div class="line">if($page&lt;0)$page=0;</div><div class="line">if($page&gt;=ceil($num/10))$page=ceil($num/10)-1;</div><div class="line">//因为page是从0开始的，所以要-1</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样<strong>$exec</strong>可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> $exec=&quot;select * from tablename limit &quot;.($page*10).&quot;,10&quot;;</div><div class="line">//一页是10记录的</div></pre></td></tr></table></figure></p>
+<p>最后需要做的就是几个连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;xxx.php?page=0&quot;&gt;FirstPage&lt;/a&gt; </div><div class="line">&lt;a href=&quot;xxx.php?page=&lt;?=($page-1)?&gt;&quot;&gt;PrevPage&lt;/a&gt; </div><div class="line">&lt;a href=&quot;xxx.php?page=&lt;?=($page+1)?&gt;&quot;&gt;NextPage&lt;/a&gt; </div><div class="line">&lt;a href=&quot;xxx.php?page=&lt;?=ceil($num/10)-1?&gt;&quot;&gt;LastPage&lt;/a&gt;</div></pre></td></tr></table></figure>
+<h3 id="PHP注意事项"><a href="#PHP注意事项" class="headerlink" title="PHP注意事项"></a>PHP注意事项</h3><p>1、注意不要漏了分号</p>
+<p>2、注意不要漏了变量前的$</p>
+<p>3、使用SESSION的时候注意不要遗漏session_start();</p>
+<p>如果发生错误的时候，可以采用以下方法：</p>
+<p>1、如果是SQL语句出错，就注释了然后输出SQL语句，注意也要注释调后续的执行SQL语句</p>
+<p>2、如果是变量为空，大多是没有传递到位，输出变量检查一下，检查一下表单的id和name</p>
+<p>3、如果是数据库连接出错，检查是否正确打开MY SQL和是否遗漏了连接语句</p>
+<p>4、注意缩进，排除括号不区配的错误</p>
+<p>在做大网站的时候，我的思路是先构建数据库，确定每一个字段的作用，和表之间的关系。然后设计后台界面，从添加数据开始做起，因为添加是否成功可以直接到数据库里面验证，做好了添加再做显示的页面，最后才是两者的结合。</p>
+<p>一般来说后台就包括添加删除修改和显示，后台没有问题了，前台也没有什么大问题。前台还需要注意安全性和容错还有就是输出格式。</p>
 
-
-MySQL数据库连接打开 MySQL 服务器连接。
- mysql_connect
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/04/17/PHP_re2/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/T-REX.png" width="44px" height="44px" alt="MDar's avatar">
-            </div>
-            <div>
-                <strong>MDar</strong>
-                <span>4月 17, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-            
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span class="ds-thread-count" data-thread-key="2017/04/17/PHP_re2/" data-count-type="comments"></span>
-                </span>
-            
-            
-            <!-- Post Views -->
-            <span class="post_entry-views">
-                
-            </span>
-        </div>
-    </div>
-            
+	
+	
+	
+	
 </div>
-
-		
-		
-    
-		
-			<!-- Paradox Thumbnail -->
-        	<div class="post_entry-module mdl-card mdl-cell mdl-cell--12-col fade out">
-    
-    <!-- Post Thumbnail -->
-	
-		<!-- Custom Thumbnail -->
-		<div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://ww1.sinaimg.cn/large/88253132gy1fepxtcsjbnj20dw08djrg.jpg)">
-	
 				
-		<!-- Post Title -->
-		<p class="article-headline-p"><a href="/2017/04/17/PHP_re1/">PHP简要回顾(上)</a></p>
-	</div>
+				
 
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            复习一下PHP吧。PP虾，我们走！
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/04/17/PHP_re1/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/T-REX.png" width="44px" height="44px" alt="MDar's avatar">
-            </div>
-            <div>
-                <strong>MDar</strong>
-                <span>4月 17, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
+                <!-- Post Comments -->
                 
-            </span>
-            
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span class="ds-thread-count" data-thread-key="2017/04/17/PHP_re1/" data-count-type="comments"></span>
-                </span>
-            
-            
-            <!-- Post Views -->
-            <span class="post_entry-views">
-                
-            </span>
-        </div>
-    </div>
-            
-</div>
-
-		
-		
-    
-    
-	
-		<script>
-    
-    var randomNum;
-    
-    var locatePost = $(".locate-thumbnail-symbol").next();
-    for(var i=0; i < 5; i++){
-        
-        randomNum = Math.floor(Math.random() * 19 + 1);
-        
-        locatePost.children(".post_thumbnail-random").attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children(".post_thumbnail-random").css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')')
-        
-        locatePost = locatePost.next();
+                    
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
     }
-    
-</script>
-
-	
-
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+        <div class="ds-thread" 
+            data-thread-key="2017/04/18/PHP_re3/" 
+            data-url="http://ccxxmd.github.io/2017/04/18/PHP_re3/"
+            data-title="PHP简要回顾（下）"></div>
+    <!-- 多说评论框 end -->
 </div>
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/04/17/PHP_re2/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+        </div>
+    </div>
 
 				
 				
